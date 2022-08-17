@@ -1,0 +1,7 @@
+pyrogram
+python-dotenv
+hachoir
+youtube-dl
+ffmpeg
+tgcrypto
+requests
