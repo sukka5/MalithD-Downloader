@@ -58,7 +58,7 @@ async def command_run(cmd: str):
 @app.on_message(filters.private & filters.command(['start']))
 async def start_handler(c:Client, m:Message):
     await m.reply_text(
-        text=f"**Hi** {m.from_user.mention}**! Welcome\nPress /help for more info.**",
+        text=f"**Hi** {m.from_user.mention}**! Welcome !\nPress /help for more info.**",
         reply_markup=InlineKeyboardMarkup([
           [
             InlineKeyboardButton(text="Settings", callback_data="settings") ,
