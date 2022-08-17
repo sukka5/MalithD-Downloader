@@ -81,6 +81,7 @@ async def text_handler(c:Client, m:Message):
     download_u = m.text
     if download_u:
         try:
+            custom_name_dir = download_u.split("/")[-1].split('.')[0]
             if "herokuapp" in download_u:
                 msg = await m.reply_text("**Downloading!**", quote=True)
                 if "|" in download_u:
@@ -88,7 +89,7 @@ async def text_handler(c:Client, m:Message):
                     download_link = url_parts[0]
                     print(download_link)
                     custom_name = url_parts[1]
-                    download_location = 'DOWNLOADS' + '/' + f'{custom_name}.mp4'
+                    download_location = 'DOWNLOADS' + '/' + f'{custom_name_dir}.mp4'
                     print(download_location)
                     await msg.edit("**Downloading to My Server Please wait!**")
                     cmd = f"youtube-dl -c -f 0 --hls-prefer-ffmpeg {download_link} -o {download_location} --no-warnings"
@@ -101,7 +102,7 @@ async def text_handler(c:Client, m:Message):
                     os.remove(download_location)
                 else:
                     custom_name = download_u.split("/")[-1].split('.')[0]
-                    download_location = 'DOWNLOADS' + '/' + f'{custom_name}.mp4'
+                    download_location = 'DOWNLOADS' + '/' + f'{custom_name_dir}.mp4'
                     print(download_location)
                         # Downloading Videos Function
                     await msg.edit("**Downloading to My Server Please wait!**")
